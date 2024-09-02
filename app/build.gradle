@@ -46,3 +46,10 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootJar {
+    archiveBaseName.set('taskmanagement-api')
+    archiveVersion.set('0.0.1')
+    archiveClassifier.set('')
+    destinationDirectory = file("$buildDir/libs")
+}

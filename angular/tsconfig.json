@@ -22,7 +22,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "baseUrl": "./src"  // 添加这行，设置模块解析的基本路径为 src 目录
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

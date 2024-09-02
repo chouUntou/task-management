@@ -1,12 +1,12 @@
 version: '3.8'
 
 services:
-  web:
+  angular:
     build:
-      context: ./web
+      context: ./angular
       dockerfile: Dockerfile
     ports:
-      - "3000:80"
+      - "80:80"
     networks:
       - app-network
 
@@ -24,7 +24,7 @@ services:
   db:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: task_management
     ports:
       - "3306:3306"
