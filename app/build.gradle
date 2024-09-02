@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.3.2'
+	id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.spinach.taskmanagement'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    // Spring Web for RESTful web services
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    // Spring Data JPA for database interaction
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // Spring Security for authentication and authorization
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // JWT library for token-based authentication
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
+    // Optional: Lombok to reduce boilerplate code
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    // Optional: DevTools for automatic restarts
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    // MySQL JDBC driver
+    runtimeOnly 'mysql:mysql-connector-java:8.0.33'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'com.h2database:h2'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
